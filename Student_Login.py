@@ -3,7 +3,6 @@ from PIL import Image,ImageTk
 import pymysql
 from tkinter import messagebox,ttk
 import os
-from StudentIssueReport import StudentIssue_Data
 class StudentLogin:
     def __init__(self,root):
 
@@ -54,6 +53,9 @@ class StudentLogin:
                          fg="red", cursor="hand2", command=self.forget_password_window).place(x=380, y=270)
         btn_login = Button(login_frame, text="Login", font=("times new roman", 15,"bold"), fg="white",
                          bg="#B00857",cursor="hand2",command=(self.login)).place(x=200, y=330, width=150,height=35)
+
+    def result(self):
+        return self.txt_id.get()
 
     def reset(self):
         self.cmb_quest.current(0)

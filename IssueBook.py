@@ -3,8 +3,6 @@ from PIL import Image,ImageTk
 from tkinter import ttk,messagebox
 import pymysql
 
-
-
 class issueBook:
 
     def __init__(self,root):

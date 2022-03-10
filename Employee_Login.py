@@ -156,7 +156,7 @@ class EmployeeLogin:
                cur.execute("select * from employee where email=%s and password=%s",(self.txt_email.get(),self.txt_password.get()))
                row=cur.fetchone()
                if row==None:
-                   messagebox.showerror("Error","Invalid Username & Password",parent=self.root)
+                   messagebox.showerror("Error","Invalid Email & Password",parent=self.root)
 
                else:
 

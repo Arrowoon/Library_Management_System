@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import ImageTk, Image
 import pymysql
 from tkinter import ttk,messagebox
-
+import os
 class StudentIssue_Data:
     def __init__(self,root):
         self.root = root
@@ -56,8 +56,6 @@ class StudentIssue_Data:
         self.issueReport.pack(fill= BOTH,expand=1)
 
 
-    #show
-
     def show(self):
         con = pymysql.connect(host="localhost", user="root", password="arrowoonbj1@", database="n_library")
         cur = con.cursor()
@@ -73,7 +71,7 @@ class StudentIssue_Data:
             messagebox.showerror("Error", f"Error due to {str(ex)}")
 
     def searchIssue(self,ev):
-        #getStudent = "select * from " + studentTable
+        import Student_Login
         con = pymysql.connect(host="localhost", user="root", password="arrowoonbj1@",database="n_library")
         cur = con.cursor()
         try:
@@ -84,7 +82,7 @@ class StudentIssue_Data:
             if len(row)>0:
                 self.issueReport.delete(*self.issueReport.get_children())
                 for i in row:
-                    self.issueReport.insert('',END,value=(i[0],i[1],i[2],i[3]))
+                    self.issueReport.insert('',END,value=(i[1],i[2],i[3],i[4]))
             else:
                 self.issueReport.delete(*self.issueReport.get_children())
         except Exception as ex:
